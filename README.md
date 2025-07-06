@@ -15,6 +15,12 @@ A RESTful API for managing job applications built with Node.js, Express, and Mon
 - **Database**: MongoDB with Mongoose ODM
 - **Password Security**: Bcrypt hashing for password protection
 
+## 🌐 Live Demo
+
+The API is deployed and ready to use:
+- **Production URL**: https://jobs-api-ib9p.onrender.com/api/v1
+- **Status**: ✅ Live and running
+
 ## 🛠️ Technologies Used
 
 - **Backend**: Node.js, Express.js
@@ -77,9 +83,15 @@ Before running this application, make sure you have the following installed:
 
 ## 📚 API Documentation
 
-### Base URL
+### Base URLs
+**Local Development:**
 ```
 http://localhost:5000/api/v1
+```
+
+**Production:**
+```
+https://jobs-api-ib9p.onrender.com/api/v1
 ```
 
 ### Authentication Endpoints
@@ -272,7 +284,13 @@ Currently, the project doesn't include tests. Consider adding:
 
 ## 🚀 Deployment
 
-### Using PM2 (Production)
+### Current Deployment
+The API is currently deployed on **Render** and accessible at:
+- **Production URL**: https://jobs-api-ib9p.onrender.com/api/v1
+
+### Alternative Deployment Options
+
+#### Using PM2 (Production)
 ```bash
 npm install -g pm2
 pm2 start app.js --name jobs-api
@@ -280,7 +298,7 @@ pm2 startup
 pm2 save
 ```
 
-### Using Docker
+#### Using Docker
 ```dockerfile
 # Create Dockerfile
 FROM node:16-alpine
@@ -291,6 +309,11 @@ COPY . .
 EXPOSE 5000
 CMD ["node", "app.js"]
 ```
+
+#### Deploy to Render
+1. Connect your GitHub repository to Render
+2. Set environment variables in Render dashboard
+3. Deploy automatically on git push
 
 ## 🤝 Contributing
 

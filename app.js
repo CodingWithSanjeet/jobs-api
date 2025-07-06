@@ -9,6 +9,12 @@ const jobsRouter = require("./routes/jobsRoute");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Swagger Docs
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger.yaml');
+
+
 // extra security packages
 const helmet = require("helmet");
 const cors = require("cors");
@@ -27,6 +33,13 @@ app.use(
 app.use(helmet());
 app.use(cors());
 app.use(xss());
+
+
+app.get('/',(req, res) =>{
+  res.send(`<h1>Jobs API</h1><a href="/api-docs">Documentation</a>`)
+})
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 // Routes
 app.use("/api/v1/auth", authRouter);
