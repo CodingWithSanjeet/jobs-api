@@ -22,6 +22,10 @@ const { xss } = require("express-xss-sanitizer");
 const rateLimiter = require("express-rate-limit");
 
 app.use(express.json());
+
+// Serve static files from public directory
+app.use(express.static('public'));
+
 // middlewares
 app.use(
   rateLimiter({
@@ -42,6 +46,10 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // Routes
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
