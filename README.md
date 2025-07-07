@@ -18,7 +18,7 @@ A RESTful API for managing job applications built with Node.js, Express, and Mon
 ## 🌐 Live Demo
 
 The API is deployed and ready to use:
-- **Production URL**: https://jobs-api-ib9p.onrender.com/api/v1
+- **Production URL**: https://jobs-api-ib9p.onrender.com
 - **Status**: ✅ Live and running
 
 ## 🛠️ Technologies Used
